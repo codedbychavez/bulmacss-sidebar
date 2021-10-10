@@ -2,18 +2,14 @@
     <h2 class="menu-brand is-size-3 has-text-white has-text-weight-bold">Team.</h2>
     <hr>
 <ul class="menu-list">
-    <li><a>Team Settings</a></li>
-    <li>
-    <a class="is-active">Manage Your Team</a>
-    <ul>
-        <li><a>Members</a></li>
-        <li><a>Plugins</a></li>
-        <li><a>Add a member</a></li>
-    </ul>
+    <li *ngFor="let menuItem of menuItems; let rooti = index">
+        <a [class.is-active]="active==rooti" (click)="active=rooti">{{ menuItem.name }}</a>
+        <ul *ngIf="menuItem.children.length > 0">
+            <li *ngFor="let childItem of menuItem.children; let subi = index">
+                <a [class.is-active]="active==subi+10" (click)="active=subi+10">{{ childItem.name }}</a>
+            </li>
+        </ul>
     </li>
-    <li><a>Invitations</a></li>
-    <li><a>Cloud Storage Environment Settings</a></li>
-    <li><a>Authentication</a></li>
 </ul>
 </div>
 

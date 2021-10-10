@@ -13,15 +13,44 @@
   
     <div id="top-navbar" class="navbar-menu has-background-dark" [ngClass]="{'is-active' : sideBarActive}">
       <div class="navbar-start">
-        <a class="navbar-item">
-          Team Settings
-        </a>
+      
+        <div *ngFor="let menuItem of menuItems; let rooti = index" >
+          <a [class.is-active]="active==rooti" (click)="active=rooti" class="navbar-item">
+            {{ menuItem.name }}
+          </a>
+
+          <div *ngIf="menuItem.children.length > 0" class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              {{ menuItem.name }}
+            </a>
+            <div class="navbar-dropdown">
+              <div *ngFor="let childItem of menuItem.children; let subi = index" >
+                <a [class.is-active]="active==subi+10" (click)="active=subi+10" class="navbar-item">
+                  {{ childItem.name }}
+                </a>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+         
+
+
+     
+
+ 
+
+   
+
+        
+       
+
+        
   
-        <div class="navbar-item has-dropdown is-hoverable">
+        <!-- <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
             Manage Your Team
           </a>
-  
           <div class="navbar-dropdown">
             <a class="navbar-item">
               Members
@@ -33,20 +62,9 @@
               Add a member
             </a>
           </div>
-  
-          <a class="navbar-item">
-            Invitations
-          </a>
-  
-          <a class="navbar-item">
-            Clould Storage Environment Settings
-          </a>
-  
-          <a class="navbar-item">
-            Authentication
-          </a>
-  
-        </div>
+        </div> -->
+
+
       </div>
     </div>
   </nav>
