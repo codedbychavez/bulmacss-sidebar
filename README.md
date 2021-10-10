@@ -1,6 +1,6 @@
 # bulmacss-sidebar
 
-A responsive demo web application with side bar. **Made with Angular and Bulma CSS**.
+A responsive demo web application with a sidebar. **Made with Angular and Bulma CSS**.
 
 ## Desktop View
 
