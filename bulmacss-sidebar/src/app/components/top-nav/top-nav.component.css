@@ -1,0 +1,18 @@
+.navbar-menu.is-active {
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+
+.navbar-item, .navbar-link {
+    color: white;
+}
+
+.navbar-item:hover {
+    color: black;
+}
+
+.navbar-link:hover {
+    background-color: white;
+    color: black;
+}
